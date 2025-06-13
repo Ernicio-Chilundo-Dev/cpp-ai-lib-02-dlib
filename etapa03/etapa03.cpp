@@ -16,6 +16,9 @@ int main(){
         array2d<unsigned char> normalized_img;
         equalize_histogram(img, normalized_img);
 
+        // Aplicar suavizacao (blur)
+        array2d <unsigned char> blurred_img;
+        gaussian_blur(normalized_img, blurred_img);
 
 
     }

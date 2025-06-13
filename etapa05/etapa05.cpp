@@ -19,6 +19,9 @@ int main(){
         shape_predictor sp;
         deserialize("shape_predictor_68_face_landmarks.dat") >> sp; 
 
+        // Detectar faces
+        std::vector<rectangle> facces = detector(img);
+        
 
     }
     catch(const std::exception& e)

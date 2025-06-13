@@ -20,19 +20,33 @@ int main(){
         deserialize("shape_predictor_68_face_landmarks.dat") >> sp; 
 
         // Detectar faces
-        std::vector<rectangle> facces = detector(img);
+        std::vector<rectangle> faces = detector(img);
 
 
         // Mostrar imagem com pontos faciais
         image_window win;
         win.set_image(img);
 
+for (auto face : faces) {
+            full_object_detection shape = sp(img, face);
 
+            for (unsigned int i = 0; i < shape.num_parts(); ++i) {
+                point p = shape.part(i);
+                rectangle r(p.x() - 1, p.y() - 1, p.x() + 1, p.y() + 1);
+                win.add_overlay(r, rgb_pixel(0, 255, 0));
+            }
 
+            cout << "Face com " << shape.num_parts() << " pontos detectados." << endl;
+        }
+        
+        cout << "Pressione qualquer tecla na janela para sair\n";
+        win.wait_until_closed();
+    
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr <<"Erro: "<< e.what() << '\n';
+        return 1;
     }
     
 }

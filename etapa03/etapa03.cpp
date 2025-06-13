@@ -19,6 +19,10 @@ int main(){
         // Aplicar suavizacao (blur)
         array2d <unsigned char> blurred_img;
         gaussian_blur(normalized_img, blurred_img);
+        
+        // Deteccao de bordas usando o filtro sobel
+        array2d <short> edge_x, edge_y;
+        sobel_edge_detector(blurred_img, edge_x, edge_y);
 
 
     }

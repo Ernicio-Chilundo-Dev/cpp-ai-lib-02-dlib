@@ -24,6 +24,15 @@ int main(){
         array2d <short> edge_x, edge_y;
         sobel_edge_detector(blurred_img, edge_x, edge_y);
 
+        // Mostrar resultados (como imagem simples em janela)
+        image_window win1(normalized_img, "Contraste normalizado");
+        image_window win2(blurred_img, "Imagem suavizada");
+        image_window win3(edge_x, "Direcao - edge_x");
+
+        cout << "Pressione qualquer tecla para fechar as janelas\n";
+        win1.wait_until_closed();
+        win2.wait_until_closed();
+        win3.wait_until_closed();
 
     }
     catch(const exception& e)

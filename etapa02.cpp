@@ -19,6 +19,8 @@ int main(){
         array2d<unsigned char> img_gray;
         assign_image(img_gray, img);
 
+        // Desennhar um retangulo vermelho no canto superior esquerdo
+        draw_rectangle(img, rectangle(10, 10, 100, 100), rgb_pixel(255, 0, 0));
 
     }
     catch(const exception& e)

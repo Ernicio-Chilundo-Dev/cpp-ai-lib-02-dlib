@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named etapa02
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+etapa02: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 etapa02
+.PHONY : etapa02
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+etapa02/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/etapa02.dir/build.make CMakeFiles/etapa02.dir/build
+.PHONY : etapa02/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+etapa02.o: etapa02.cpp.o
+.PHONY : etapa02.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+etapa02.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/etapa02.dir/build.make CMakeFiles/etapa02.dir/etapa02.cpp.o
+.PHONY : etapa02.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+etapa02.i: etapa02.cpp.i
+.PHONY : etapa02.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+etapa02.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/etapa02.dir/build.make CMakeFiles/etapa02.dir/etapa02.cpp.i
+.PHONY : etapa02.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+etapa02.s: etapa02.cpp.s
+.PHONY : etapa02.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+etapa02.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/etapa02.dir/build.make CMakeFiles/etapa02.dir/etapa02.cpp.s
+.PHONY : etapa02.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... etapa02"
+	@echo "... etapa02.o"
+	@echo "... etapa02.i"
+	@echo "... etapa02.s"
 .PHONY : help
 
 

@@ -3,5 +3,5 @@ project(dlib_face_detector)
 
 find_package(dlib REQUIRED)
 
-add_executable(main main.cpp)
-target_link_libraries(main dlib::dlib)
+add_executable(etapa02 etapa02.cpp)
+target_link_libraries(etapa02 dlib::dlib)

@@ -32,8 +32,9 @@ int main(){
         cout << "Imagem modificada salva como test_modified.jpg\n";
 
         // Mostrar a imagem numa janela(opcional)
-        image_window win(img, "Imagem Modificada");
-        cout << "Pressione qualquer tecla na janela para sair...";
+        image_window win;
+        win.set_image(img);
+        win.set_title("Imagem modificada");
         win.wait_until_closed();
 
     }

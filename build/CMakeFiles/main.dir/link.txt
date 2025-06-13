@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/main.cpp.o -o main  /usr/local/lib/libdlib.a -lopenblas -lSM -lICE -lX11 -lXext -lpng -lz -ljpeg -lwebp 

@@ -33,7 +33,6 @@ int main(){
         win1.wait_until_closed();
         win2.wait_until_closed();
         win3.wait_until_closed();
-
     }
     catch(const exception& e)
     {

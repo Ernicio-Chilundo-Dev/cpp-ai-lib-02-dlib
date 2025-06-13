@@ -7,7 +7,17 @@ using namespace std;
 using namespace dlib;
 
 int main(){
-
+    try
+    {
+        // Carregar imagem
+        array2d <rgb_pixel> img;
+        frontal_face_detector detector  = get_frontal_face_detector();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 
     return 0;
 }

@@ -19,10 +19,19 @@ int main(){
         // Detecta faces
         std::vector<rectangle> faces = detector(img);
         cout << "Detectadas "<<faces.size() << "face(s)\n";
+
+        // Desenhar as deteccoes
+        image_window win;
+        win.set_image(img);
+        win.add_overlay(faces, rgb_pixel(255, 0, 0));
+
+        cout << "pressione qualquer tecla para fechar a janela\n";
+        win.wait_until_closed();
     }
-    catch(const std::exception& e)
+    catch(const exception& e)
     {
-        std::cerr << e.what() << '\n';
+        cerr <<"Erro: "<< e.what() << '\n';
+        return 1;
     }
     
 

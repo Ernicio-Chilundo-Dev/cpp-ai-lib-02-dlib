@@ -22,6 +22,10 @@ int main(){
         // Desennhar um retangulo vermelho no canto superior esquerdo
         draw_rectangle(img, rectangle(10, 10, 100, 100), rgb_pixel(255, 0, 0));
 
+        // Desenhar um circulo verde o centro da imagem
+        point center(img.nc()/2, img.nr()/2);
+        draw_solid_circle(img, center, 30, rgb_pixel(0, 255, 0));
+
     }
     catch(const exception& e)
     {

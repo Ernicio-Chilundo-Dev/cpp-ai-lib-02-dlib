@@ -7,8 +7,21 @@ using namespace std;
 using namespace dlib;
 
 int main(){
-    array2d<rgb_pixel> img;
-    load_image(img, "../test.jpg");
+    try
+    {
+        array2d<rgb_pixel> img;
+        load_image(img, "../test.jpg");
+
+        // Converter para escala de siza
+        array2d<usingned char> img_gray;
+        assign_image(img_gray, img);
+    }
+    catch(const exception& e)
+    {
+        cerr <<"Erro: " << e.what() << '\n';
+        return 1;
+    }
+    
 
     return 0;
 }

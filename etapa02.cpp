@@ -26,6 +26,10 @@ int main(){
         point center(img.nc()/2, img.nr()/2);
         draw_solid_circle(img, center, 30, rgb_pixel(0, 255, 0));
 
+        // Salvar imagem modificada
+        save_jpeg(img, "test_modified.jpg");
+
+
     }
     catch(const exception& e)
     {

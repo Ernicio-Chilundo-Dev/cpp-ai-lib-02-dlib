@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/etapa03.dir/etapa03.cpp.o -o etapa03  /usr/local/lib/libdlib.a -lopenblas -lSM -lICE -lX11 -lXext -lpng -lz -ljpeg -lwebp 

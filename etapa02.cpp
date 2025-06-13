@@ -29,6 +29,12 @@ int main(){
         // Salvar imagem modificada
         save_jpeg(img, "test_modified.jpg");
 
+        cout << "Imagem modificada salva como test_modified.jpg\n";
+
+        // Mostrar a imagem numa janela(opcional)
+        image_window win(img, "Imagem Modificada");
+        cout << "Pressione qualquer tecla na janela para sair...";
+        win.wait_until_closed();
 
     }
     catch(const exception& e)

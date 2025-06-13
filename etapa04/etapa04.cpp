@@ -18,7 +18,7 @@ int main(){
 
         // Detecta faces
         std::vector<rectangle> faces = detector(img);
-        cout << "Detectadas "<<faces.size() << "face(s)\n";
+        cout << "Detectadas "<<faces.size() << " face(s)\n";
 
         // Desenhar as deteccoes
         image_window win;

@@ -21,7 +21,13 @@ int main(){
 
         // Detectar faces
         std::vector<rectangle> facces = detector(img);
-        
+
+
+        // Mostrar imagem com pontos faciais
+        image_window win;
+        win.set_image(img);
+
+
 
     }
     catch(const std::exception& e)

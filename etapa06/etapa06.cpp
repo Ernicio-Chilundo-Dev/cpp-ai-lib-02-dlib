@@ -7,6 +7,19 @@ using namespace std;
 using namespace dlib;
 
 int main(){
+    try
+    {
+        // Inicia webcam (0 = padrao)
+        cv::VideoCapture cap(0);
+        if(!cap.isOpened()){
+            cerr << "Erro: nao foi possivel abrir o webcam";
+            return 1;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
 
     return 0;

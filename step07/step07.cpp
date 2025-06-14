@@ -17,7 +17,10 @@ int main(){
             return 1;
         }
 
-        
+        // Detector de face e preditor landmarks
+        frontal_face_detector detector = get_frontal_face_detector();
+        shape_predictor sp;
+        deserialize("shape_predictor_68_face_landmarks.dat") >> sp;
 
     }catch(const exception& e){
         cerr << "Erro: "<<e.what()<<endl;

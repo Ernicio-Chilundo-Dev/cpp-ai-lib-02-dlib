@@ -13,7 +13,7 @@ int main(){
         // Acessa webcam
         cv::VideoCapture cap(0);
         if(!cap.isOpened()){
-            cerr << "Erro ao abrir a webcam\n";
+            cerr << "Erro ao abrir webcam\n";
             return 1;
         }
 
@@ -58,7 +58,7 @@ int main(){
 
         cap.release();
         cv::destroyAllWindows();
-        
+
     }catch(const exception& e){
         cerr << "Erro: "<<e.what()<<endl;
         return 1;

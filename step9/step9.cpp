@@ -12,18 +12,18 @@ using namespace dlib;
 
 // Dlib Face Recognition Network Definition
 template <template<int, template<typename> class, int, typename> class block,
-        int N, template<typename> class BN, typename SUBNET>
-using risidual = add_prev1<block<N, BN, 1, tag1<SUBNET>>>;
+          int N, template<typename> class BN, typename SUBNET>
+using residual = add_prev1<block<N, BN, 1, tag1<SUBNET>>>;
 
 template <template<int, template<typename> class, int, typename> class block,
-        int N, template<typename> class BN, typename SUBNET>
-using risidual_down = add_prev2<avg_pool<2, 2, 2, 2, skip1<block<N, BN, 2, tag2<SUBNET>>>>>;
+          int N, template<typename> class BN, typename SUBNET>
+using residual_down = add_prev2<avg_pool<2, 2, 2, 2, skip1<block<N, BN, 2, tag2<SUBNET>>>>>;
 
-template <int N, template<typename> class BN, int stride, typename SUBNET>
-using block = BN<con<N, 3, 3, stride, stride, relu<BN<con<N, 3, 3, 1, 1, SUBNET>>>>>;
+template <int N, template <typename> class BN, int stride, typename SUBNET>
+using block  = BN<con<N, 3, 3, stride, stride, relu<BN<con<N, 3, 3, 1, 1, SUBNET>>>>>;
 
-template <int N, typename SUBNET> using ares      = relu<risidual<block, N, affine, SUBNET>>;
-template <int N, typename SUBNET> using ares_down = relu<risidual_down<block, N, affine, SUBNET>>;
+template <int N, typename SUBNET> using ares      = relu<residual<block, N, affine, SUBNET>>;
+template <int N, typename SUBNET> using ares_down = relu<residual_down<block, N, affine, SUBNET>>;
 
 template <typename SUBNET> using alevel0 = ares_down<256, SUBNET>;
 template <typename SUBNET> using alevel1 = ares<256, ares<256, ares_down<256, SUBNET>>>;
@@ -38,8 +38,6 @@ using anet_type = loss_metric<fc_no_bias<128, avg_pool_everything<
                                 relu<affine<con<32, 7, 7, 2, 2,
                                 input_rgb_image_sized<150>>>>>>>>>>>>;
 
-
-                   
 int main() {
     try {
         cv::VideoCapture cap(0);
@@ -125,4 +123,3 @@ int main() {
 
     return 0;
 }
-             

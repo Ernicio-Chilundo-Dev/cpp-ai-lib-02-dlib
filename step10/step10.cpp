@@ -42,3 +42,13 @@ using anet_type = loss_matric<fc_no_bias<128, avg_pool_everything<
 float face_distance(const matrix<float, 0, 1>& face1, const matrix<float, 0, 1>& face2){
     return length(face1 - face2);
 }
+
+int main(){
+    try{
+
+    }catch(exception& e){
+        cerr << "Erro: "<<e.what()<<endl;
+        return 1;
+    }
+    return 0;
+}

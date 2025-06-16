@@ -1,0 +1,3 @@
+/home/ernicio/library-cpp-ai/cpp-ai-lib-02-dlib/step10/build/CMakeFiles/step10.dir
+/home/ernicio/library-cpp-ai/cpp-ai-lib-02-dlib/step10/build/CMakeFiles/edit_cache.dir
+/home/ernicio/library-cpp-ai/cpp-ai-lib-02-dlib/step10/build/CMakeFiles/rebuild_cache.dir

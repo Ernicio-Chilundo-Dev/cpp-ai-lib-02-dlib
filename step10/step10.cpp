@@ -61,6 +61,75 @@ int main(){
         // Map to store label and corresponding face descriptors
         std::map<std::string, matrix<float, 0, 1>> known_faces;
 
+        while (true)
+        {
+            cv::Mat frame;
+            cap >>frame;
+            if(frame.empty()) break;
+
+            cv_image<bgr_pixel> cimg(frame);
+            std::vector<rectangle> faces = detector(cimg);
+
+            for (auto face : faces)
+            {
+                full_object_detection shape = sp(cimg, face);
+                matrix<rgb_pixel> face_chip;
+                extract_image_chip(cimg, get_face_chip_details(shape, 150, 0.25), face_chip);
+
+                matrix<float, 0, 1> face_descriptor = net(face_chip);
+
+                string label  = "Unknown";
+                float min_distance = 0.6;  // threshold for face match
+
+                // Search for  the closest known face
+                for (const auto& kv : known_faces)
+                {
+                    float dist = face_distance(face_descriptor, kv.second);
+                    if(dist < min_distance){
+                        min_distance = dist;
+                        label = kv.first;
+                    }
+                }
+
+                // Draw rectangle and label
+                cv::rectangle(frame,
+                            cv::Point(face.left(), face.top()),
+                            cv::Point(face.right(), face.bottom()),
+                            cv::Scalar(0, 255, 0),2);
+
+                cv::putText(frame,label,
+                            cv::Point(face.left(), face.top() -10),
+                            cv::FONT_HERSHEY_SIMPLEX, 0.8,
+                            cv::Scalar(255,255,25), 2);
+
+
+                
+            }
+
+            cv::imshow("Face recognition Step 10", frame);
+            char key = cv::waitKey(1);
+            if(key == 'q') break;
+
+            // Add new face on 'a' keypress
+            if(key == 'a' && !faces.empty()){
+                cout << "Enter name for the new face: \n";
+                string name;
+                cin >> name;
+
+                full_object_detection shape =sp(cimg, faces[0]);
+                matrix<rgb_pixel> face_chip;
+                extract_image_chip(cimg, get_face_chip_details(shape, 150, 0.25), face_chip);
+                matrix<float, 0, 1> face_descriptor = net(face_chip);
+                known_faces[name] = face_descriptor;
+                cout << "Added face for: "<< name << endl;
+
+            }
+            cap.release();
+            cv::destroyAllWindows();
+            
+        }
+        
+
     }catch(exception& e){
         cerr << "Erro: "<<e.what()<<endl;
         return 1;

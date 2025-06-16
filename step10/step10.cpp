@@ -38,3 +38,7 @@ using anet_type = loss_matric<fc_no_bias<128, avg_pool_everything<
                                 max_pool<3, 3, 2,2,
                                 relu<affine<con<32, 7, 7, 2, 2,
                                 input_rgb_image_sized<150>>>>>>>>>>>>;
+
+float face_distance(const matrix<float, 0, 1>& face1, const matrix<float, 0, 1>& face2){
+    return length(face1 - face2);
+}

@@ -45,6 +45,21 @@ float face_distance(const matrix<float, 0, 1>& face1, const matrix<float, 0, 1>&
 
 int main(){
     try{
+        cv::VideoCapture cap(0);
+        if(!cap.isOpened()){
+            cerr << "Error opening webcam\n";
+            return 1;
+        }
+
+        frontal_face_detector detector = get_frontal_face_detector();
+        shape_predictor sp;
+        deserialize("shape_predictor_face_landmarks.dat") >> sp;
+
+        anet_type net;
+        deserialize("dlib_face-recogniton_resnet_model_v1.dat") >> net;
+
+        // Map to store label and corresponding face descriptors
+        std::map<std::string, matrix<float, 0, 1>> known_faces;
 
     }catch(exception& e){
         cerr << "Erro: "<<e.what()<<endl;
